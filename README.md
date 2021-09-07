@@ -4,7 +4,7 @@
 * 1.The address showed to users shall keep the prefix with 'GNC';
 * 2.Before calling the Galaxy Network RPC interface, please replace the transfer address prefix 'GNC' entered by users with '0x'
 
-###Show to users:
+### Show to users:
 ```java
     import org.web3j.crypto.Credentials;
 
@@ -17,7 +17,7 @@
     }
 ```
 
-###User input:
+### User input:
 ```java
     public class Balance {
         public static void main(String[] args){

@@ -31,7 +31,6 @@ public class Main {
     static String toAddress = "GNC69310bc3618fa049db1824a06f262146bc62ee23";
     static String outBalance = "30000";//ether
     static int chainid = 37021;
-
     public static void main(String[] args) throws IOException {
 
         Web3j web3j = Web3j.build(new HttpService("http://chain-node.galaxynetwork.vip/"));
@@ -43,16 +42,13 @@ public class Main {
         System.out.println("fromAddress-->"+fromAddress);
 
         BigInteger b=web3j.ethGetBalance(fromAddress,DefaultBlockParameterName.LATEST).send().getBalance();
-        System.out.println("balance--->"+b);
         BigDecimal bigDecimal = Convert.fromWei(new BigDecimal(b),Convert.Unit.ETHER);
-        System.out.println("---->"+bigDecimal);
+        System.out.println("balance---->"+bigDecimal);
 
         EthGetTransactionCount ethGetTransactionCount =
                 web3j.ethGetTransactionCount(fromAddress,
                         DefaultBlockParameterName.PENDING).send();
-
-//        BigInteger nonce = ethGetTransactionCount.getTransactionCount();
-        BigInteger nonce = new BigInteger("7");
+        BigInteger nonce = ethGetTransactionCount.getTransactionCount();
 
         byte[] privateKey =
                 Hex.decode(privateKeyStr.replace("GNC", ""));
@@ -65,6 +61,7 @@ public class Main {
         BigInteger gasPrice = web3j.ethGasPrice().send().getGasPrice();
         BigInteger gasLimit = new BigInteger("21000");
 
+        toAddress = toAddress.replace("GNC","0x");
         RawTransaction etherTransaction = RawTransaction.createTransaction(nonce,
                 gasPrice,
                 gasLimit,

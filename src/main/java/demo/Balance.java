@@ -16,7 +16,7 @@ public class Balance {
 
     static String fromAddress = "GNC7d4ed9084A364424d1087d26C4Ef092EAfB0b395";
 //    static String url = "http://chain-node.galaxynetwork.vip/";
-    static String url = "http://14.116.138.103:8545/";
+    static String url = "http://chain-node.galaxynetwork.vip/";
 //    static HashMap<String,String> hashMap = new HashMap<>();
 
     public static void main(String[] args) throws IOException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchProviderException {

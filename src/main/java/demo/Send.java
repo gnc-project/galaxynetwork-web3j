@@ -20,14 +20,14 @@ public class Send {
         System.out.println("chain----->"+chain);
 
         String fromAddress = Credentials.create(privateKeyStr).getAddress();
-        System.out.println("fromAddress-->"+fromAddress.replace("0x","GNC"));
+        System.out.println("fromAddress-->"+fromAddress);
         EthGetTransactionCount ethGetTransactionCount =
                 web3j.ethGetTransactionCount(fromAddress,
                         DefaultBlockParameterName.PENDING).send();
 
         BigInteger nonce = ethGetTransactionCount.getTransactionCount();
 
-        System.out.println("fromAddress-->"+fromAddress.replace("0x","GNC"));
+        System.out.println("fromAddress-->"+fromAddress);
         System.out.println("nonce--->"+nonce);
 
     }

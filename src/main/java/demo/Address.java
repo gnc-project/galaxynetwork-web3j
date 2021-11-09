@@ -23,7 +23,7 @@ public class Address {
             BigInteger privateKeyInDec = ecKeyPair.getPrivateKey();
             Credentials keys = Credentials.create(ECKeyPair.create(privateKeyInDec));
             String privateKey = Hex.toHexString(keys.getEcKeyPair().getPrivateKey().toByteArray());
-            String address = keys.getAddress().replace("0x","GNC");
+            String address = keys.getAddress();
             hashMap.put(address,privateKey);
         }
 
